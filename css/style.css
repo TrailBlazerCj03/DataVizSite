@@ -39,15 +39,15 @@ h1 {
 h2 {
 	color:#36648B; 
 	font: Helvetica;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: lighter;
 }
 p {
   color: #4A708B ;
   font: Helvetica;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
+  font-size: 14px;
+  font-weight: lighter;
+  text-align: left;
 }
 
 h3 {color: #4A708B ;
@@ -69,7 +69,7 @@ h3 {color: #4A708B ;
         right:10%;
         z-index:20;
         background:#404040; 
-        opacity: 0.7;
+        opacity: 0.8;
       }  
   .imgw{position: relative;
         }  
