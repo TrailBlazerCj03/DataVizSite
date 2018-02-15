@@ -7,12 +7,11 @@ function setup() {
 }
 
 function draw() {
-  background("#ADADAD");
-
+  background(255);
   for(var i = 0; i <= width; i += 20) {
     for(var j = 0; j <= height; j += 20) {
       var size = dist(mouseX, mouseY, i, j);
-      size = size/max_distance * 66;
+      size = size/max_distance;
       ellipse(i, j, size, size);
     }
   }
