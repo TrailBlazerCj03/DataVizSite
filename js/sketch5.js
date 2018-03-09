@@ -28,7 +28,7 @@ function drawLabels() {
   textAlign(LEFT, CENTER);
   textSize(20);
 
-  text("Neighborhoods: Residential FAR to Commercial FAR", 5, topY - 10);
+  text("Neighborhoods: Residential FAR to Commercial FAR", 5, topY - 20);
   textAlign(RIGHT, CENTER);
 
   for (var i = 0; i < 11; i++) {
