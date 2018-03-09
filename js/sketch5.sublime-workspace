@@ -1,0 +1,259 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Star",
+				"StartX"
+			],
+			[
+				"data",
+				"dataArray"
+			],
+			[
+				"Re",
+				"releaseDate"
+			],
+			[
+				"leng",
+				"lengthMultiplier"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"dist",
+				"distcolor"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"siz",
+				"font-size"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/Assignment5.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/assignment4colors.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/05Data/js/sketch1.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/assignment4bubbles.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/index.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/group.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/Assignment3.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/individual.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/index1.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/assignment5.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/Assignment4.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/05Data/js/sketch.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/05Data/index.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/05Data/js/Sketch.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/js/sketch2.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/sketch1.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/sketch2.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/sketch3.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/sketch3.js",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/assignment4_2.html",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/sketch.js",
+		"/Users/Zhoujiacheng/Documents/Processing/wework.py",
+		"/Users/Zhoujiacheng/Desktop/DataVizSite/css/style.css",
+		"/Users/Zhoujiacheng/Desktop/plot.py",
+		"/Users/Zhoujiacheng/Desktop/Urban Data Analytics/nyc.py",
+		"/Users/Zhoujiacheng/Desktop/Urban Data Analytics/map.py",
+		"/Users/Zhoujiacheng/Desktop/test.py",
+		"/Users/Zhoujiacheng/Desktop/map.py",
+		"/Users/Zhoujiacheng/Desktop/map.html",
+		"/Users/Zhoujiacheng/Desktop/aus.html",
+		"/Users/Zhoujiacheng/Desktop/a.java",
+		"/Users/Zhoujiacheng/Desktop/coin.java",
+		"/Users/Zhoujiacheng/Desktop/Github/css/style.css",
+		"/Users/Zhoujiacheng/Desktop/Github/index.html",
+		"/Users/Zhoujiacheng/Desktop/Columbia Class Schedule(new)/Data Visulisation/Week2/index.html",
+		"/Users/Zhoujiacheng/Desktop/Columbia Class Schedule(new)/Data Visulisation/Week2/css/style.css",
+		"/Users/Zhoujiacheng/Downloads/ACS2013_Clean.R",
+		"/Users/Zhoujiacheng/Desktop/rMaps-master/R/Datamaps.R",
+		"/Users/Zhoujiacheng/Downloads/tandf_rjpa1931_331.bib"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sketch5.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
