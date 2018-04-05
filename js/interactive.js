@@ -17,7 +17,7 @@ var bottomBudget = new p5.Table;
 
 // ***** Preload function ***** //
 function preload(){
-  moviesTable = loadTable('../05Data/Data/tmdb_5000_movies.csv', 'csv', 'header');
+  moviesTable = loadTable('05Data/Data/tmdb_5000_movies.csv', 'csv', 'header');
   console.log('Done loading table...');
 }
 
