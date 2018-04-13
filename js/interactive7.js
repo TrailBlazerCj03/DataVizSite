@@ -116,10 +116,10 @@ function drawTables(){
       fill('30');
       textSize(10.5);
       textAlign(LEFT);
-      text(NTANameT,10,82+k*30);
+      text(NTANameT,10,83+k*30);
       fill(220, 150, 153);
       textStyle(BOLD);
-      text(topBudget.getNum(k,'R/C'),RC2*1.5+10,82+k*30);
+      text(topBudget.getNum(k,'R/C'),RC2*1.5+10,83+k*30);
     }
   }
 else {
@@ -134,10 +134,10 @@ else {
       fill('30');
       textSize(10.5);
       textAlign(LEFT);
-      text(NTANameB,10,82+k*30);
+      text(NTANameB,10,83+k*30);
       fill(220, 150, 153);
       textStyle(BOLD);
-      text(bottomBudget.getNum(k,'R/C'),RC4*1.5+15,82+k*30);
+      text(bottomBudget.getNum(k,'R/C'),RC4*1.5+15,83+k*30);
     }
   }
 }
