@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dataviz Final Prototype</title>
+        <meta name="GSAPP Dataviz" content="GSAPP Dataviz - Spring 2018">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|PT+Sans:400i" rel="stylesheet">
+        <script language="javascript" type="text/javascript" src="scripts/p5.min.js"></script>
+        <script language="javascript" type="text/javascript" src="scripts/p5.dom.min.js"></script>
+        <script language="javascript" type="text/javascript" src="scripts/sketch1.js"></script>
+        <script language="javascript" type="text/javascript" src="scripts/Chart.bundle.js"></script>
+    <head>
+    <body>
+        <!-- Section 1 -->
+
+        <div class="sec1" class="grid-container">
+            <div class="sec1-1" class="grid-item">
+                <p class="title">MUSIC PLAYS LOUD IN MANHATTAN</p>
+            </div>
+            <div class="sec1-2" class="grid-item">
+                <p class="legend">A quick visual analysis of<br> loud music complaints</p>
+            </div>
+            <div class="sec1-3" class="grid-item">
+                <!-- <p class="copy"><br> a project by Group 3 <br> ARCHA–4892</p> -->
+            </div>
+            <div class="sec1-4" class="grid-item">
+                <p class="copy" class="section">
+                    <em class="section">Why we care about the noise</em><br>People live in modern city are surrounded by all kinds of noises today. No matter people are exposed to outdoor or indoor environment, the noises come to bother you even many times a day. Noise always have considerable impact on human health and daily life, it can directly or indirectly result in sleeplessness, low efficiency, irritable temper and so on.
+                </p>
+            </div>
+            <div class="sec1-5" class="grid-item">
+                <p class="big-number">
+                    47.1%
+                </p>
+            </div>
+            <div class="sec1-6" class="grid-item">
+                <p class="copy" class="section">
+                    <em class="section">Why we care about Broadway</em><br>We intend to discover how people in Manhattan feel about their surrounding noise. To be specific, we mainly research the noise along Broadway which is an undoubted concentration of theaters, traffic and active human activities. And these things are always considered as the mainly source of noise[1]. The type and count of noise change along Broadway as the environments and activities vary a lot in different neighborhoods.
+                </p>
+            </div>
+            <div class="sec1-7" class="grid-item">
+                <p class="copy" class="section">
+                    <em class="section">Why we care about Loud Music</em><br>We use the Noise Compliant data sourced from 311 Service Requests from 2010 to Present. There are many categories of compliant descriptor including banging or pounding, loud music or party, loud talking, car horn and so on. We find that loud music or party is the most annoying noise for people and accounts for 47.1% of the noise complaint in 2017 Manhattan’s noise complaint.
+                </p>
+            </div>
+            <div class="map" class="grid-item">
+                <img src="img/map.svg" width="480">
+                <p class="map-txt">According to Traffic Noise Basics Fact Sheet provided by KeepSanDiegoMoving project, 200 feet is the ‘effective’ noise spreading radius. Thus, we select 200ft as the buffer radius of the Broadway to find out what census tracts are contained in the affected area.</p>
+            </div>
+            <div class="sec1-8" class="grid-item">
+                <p class="copy" class="section">
+                    <em class="section">Patterns between loud music complaints and demographics</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- First chart in stack -->
+        <div class="sec0" class="grid-container">
+            <div class="sec0-1" class="grid-item">
+                <canvas id="chA"></canvas>
+                <script>
+                    let chxA = document.getElementById("chA").getContext('2d');
+                    let chartA = new Chart(chxA, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            datasets: [{
+                                label: "Total Population",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    null,
+                                    52.681,
+                                    50.909,
+                                    64.821,
+                                    34.134,
+                                    17.863,
+                                    34.754,
+                                    73.789,
+                                    48.625,
+                                    18.253,
+                                    14.970,
+                                    20.117,
+                                    26.348,
+                                    29.802,
+                                    null,
+                                ],
+                                fill: false,
+                                lineTension: 0.8,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 7,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 3,
+                                pointHoverRadius: 9,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            legend: {
+                                position: "right",
+                                labels: {
+                                    boxWidth: 10,
+                                },
+                                display: false
+                            },
+                            tooltips: {
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left",
+                                    scaleLabel:{
+                                        display:true,
+                                        labelString:"TOTAL POPULATION",
+                                        fontSize:11,
+                                        fontColor:"rgba(54, 162, 235, 1)",
+                                        padding: 0,
+                                    },
+                                    ticks: {
+                                        callback: function(value, index, values) {
+                                            return "       " + value + "K ";
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Second chart in stack -->
+            <div class="sec0-2" class="grid-item">
+                <canvas id="chB"></canvas>
+                <script>
+                    let chxB = document.getElementById("chB").getContext('2d');
+                    let chartB = new Chart(chxB, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            datasets: [{
+                                label: "Median Income",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    null,
+                                    24.176,
+                                    29.821,
+                                    19.198,
+                                    22.298,
+                                    15.713,
+                                    34.492,
+                                    66.315,
+                                    95.060,
+                                    70.587,
+                                    94.156,
+                                    79.630,
+                                    77.531,
+                                    79.136,
+                                    null
+                                ],
+                                fill: false,
+                                lineTension: 0.8,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255, 206, 86, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 7,
+                                pointBorderColor: "rgba(255, 206, 86, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 3,
+                                pointHoverRadius: 9,
+                                pointHoverBackgroundColor: "rgba(255, 206, 86, 1)",
+                                pointHoverBorderColor: "rgba(255, 206, 86, 1)",
+                                pointHoverBorderWidth: "rgba(255, 206, 86, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            legend: {
+                                display: false
+                            },
+                            tooltips: {
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left",
+                                    scaleLabel:{
+                                        display:true,
+                                        labelString:"MEDIAN INCOME",
+                                        fontSize:11,
+                                        fontColor:"rgba(255, 206, 86, 1)",
+                                        padding: 0,
+                                    },
+                                    ticks: {
+                                        callback: function(value, index, values) {
+                                            return "   $" + value + "K ";
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Third chart in stack -->
+            <div class="sec0-3" class="grid-item">
+                <canvas id="chC"></canvas>
+                <script>
+                    let chxC = document.getElementById("chC").getContext('2d');
+                    let chartC = new Chart(chxC, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                            ],
+                            datasets: [{
+                                label: "Education below HS",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    null,
+                                    26.0,
+                                    21.0,
+                                    32.0,
+                                    27.3,
+                                    33.0,
+                                    5.7,
+                                    4.4,
+                                    1.5,
+                                    8.0,
+                                    3.9,
+                                    1.8,
+                                    5.9,
+                                    3.3,
+                                    null,
+                                ],
+                                fill: false,
+                                lineTension: 0.8,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(75, 192, 192, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 7,
+                                pointBorderColor: "rgba(75, 192, 192, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 3,
+                                pointHoverRadius: 9,
+                                pointHoverBackgroundColor: "rgba(75, 192, 192, 1)",
+                                pointHoverBorderColor: "rgba(75, 192, 192, 1)",
+                                pointHoverBorderWidth: "rgba(75, 192, 192, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            legend: {
+                                display: false
+                            },
+                            tooltips: {
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                xAxes: [{
+
+                                }],
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left",
+                                    scaleLabel:{
+                                        display:true,
+                                        labelString: "EDUCATION BELOW HS",
+                                        fontSize:11,
+                                        fontColor:"rgba(75, 192, 192, 1)",
+                                        padding: 0,
+                                    },
+                                    ticks: {
+                                        beginAtZero: false,
+                                        callback: function(value, index, values) {
+                                            return "      " + value + "% ";
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Fourth chart in stack-->
+            <div class="sec0-4">
+                <canvas id="chD"></canvas>
+                <script>
+                    let chxD = document.getElementById("chD").getContext('2d');
+                    let chartD = new Chart(chxD, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "BROADWAY NORTH",
+                                ["Marble Hill,", "Inwood"],
+                                ["Washington", " Heights North"],
+                                ["Washington", "Heights South"],
+                                ["Hamilton", "Heights"],
+                                ["Manhattanville"],
+                                ["Morningside", "Heights"],
+                                ["Upper West Side"],
+                                ["Lincoln Square"],
+                                ["Midtown,","Midtown South"],
+                                ["Hudson Yards,", "Chelsea, Flatiron,", "Union Square"],
+                                ["West Village"],
+                                ["SoHo, TriBeCa,", "Civic Ctr, L. Italy"],
+                                ["Battery Park City,", "Lower Manhattan"],
+                                "BROADWAY SOUTH"
+                            ],
+                            datasets: [{
+                                label: "Complaints by Neighborhood",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    null,
+                                    4249,
+                                    6148,
+                                    6830,
+                                    4811,
+                                    2073,
+                                    1413,
+                                    2181,
+                                    840,
+                                    1795,
+                                    1980,
+                                    2567,
+                                    1977,
+                                    603,
+                                    null
+                                ],
+                                fill: false,
+                                showLine: false,
+                                lineTension: 0.8,
+                                // cubicInterpolationMode: "monotone",
+                                // borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                pointRadius: [
+                                    0,
+                                    Math.sqrt(4249) * 0.45,
+                                    Math.sqrt(6148) * 0.45,
+                                    Math.sqrt(6830) * 0.45,
+                                    Math.sqrt(4811) * 0.45,
+                                    Math.sqrt(2073) * 0.45,
+                                    Math.sqrt(1413) * 0.45,
+                                    Math.sqrt(2181) * 0.45,
+                                    Math.sqrt(840) * 0.45,
+                                    Math.sqrt(1795) * 0.45,
+                                    Math.sqrt(1980) * 0.45,
+                                    Math.sqrt(2567) * 0.45,
+                                    Math.sqrt(1977) * 0.45,
+                                    Math.sqrt(603) * 0.45,
+                                    0
+                                ],
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "rgba(255,99,132,1)",
+                                pointBorderWidth: 3,
+                                pointHoverRadius: [
+                                    0,
+                                    Math.sqrt(4249) + 3,
+                                    Math.sqrt(6148) + 3,
+                                    Math.sqrt(6830) + 3,
+                                    Math.sqrt(4811) + 3,
+                                    Math.sqrt(2073) + 3,
+                                    Math.sqrt(1413) + 3,
+                                    Math.sqrt(2181) + 3,
+                                    Math.sqrt(840) + 3,
+                                    Math.sqrt(1795) + 3,
+                                    Math.sqrt(1980) + 3,
+                                    Math.sqrt(2567) + 3,
+                                    Math.sqrt(1977) + 3,
+                                    Math.sqrt(603) + 3,
+                                    0
+                                ],
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                            }]
+                        },
+                        options: {
+                            layout: {
+                                padding: {
+                                    left: 0,
+                                    right: 0,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            },
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: false,
+                                // position: "right"
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false,
+
+                            tooltips: {
+                                position: "nearest",
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                xAxes:[{
+                                    offset: false,
+                                    ticks: {
+                                        autoSkip: false,
+                                        minRotation: 70,
+                                        padding: 10,
+                                    }
+                                }],
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left",
+                                    offset: false,
+                                    gridLines: {
+                                        display: false
+                                    },
+                                    scaleLabel: {
+                                        display:true,
+                                        labelString: "MUSIC COMPLAINTS",
+                                        fontSize:11,
+                                        fontColor:"rgba(255,99,132,1)",
+                                        padding: 0,
+                                    },
+                                    ticks: {
+                                        fontColor: "#ffffff",
+                                        display: true,
+                                        callback: function(value, index, values) {
+                                            return "          " + value;
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="sec-rnd" class="grid-container">
+            <p class="rnd-1" class="grid-item">
+                <em class="section">Loud music complaints from 2017 visualized by neighborhood and season</em>
+                <br>
+                <div class="rnd-2" class="grid-item">
+                    Our assumption was that people might complain more during the Winter holidays, such as during Thanksgiving and Christmas. Unexpectedly, the data shows that people are more likely to report during Spring and Summer. Closely looking into different boroughs, Washington Heights South, Washington Height North, and Marble Hill-Inwood are the top three boroughs that received the most complaints during Spring and Summer. However, amongst these boroughs, we found that if the borough receives most complaints during spring, it is likelihood that it might received the most complaints throughout the year.
+                </div>
+
+            </p>
+        </div>
+
+        <!-- Season Chart -->
+        <div class="secS" class="grid-container">
+            <div class="secS-1">
+                <canvas id="chS"></canvas>
+                <script>
+                    let chxS = document.getElementById("chS").getContext('2d');
+                    let chartS = new Chart(chxS, {
+                        type: "scatter",
+                        data: {
+                            datasets: [{ // Dummy dataset
+                                label: null,
+                                data: null,
+                                options: null
+                            }, { // Dataset 1: Spring ----------------
+                                // label: "Spring",
+                                data: [{
+                                    x: null, // Item null
+                                    y: 90,
+                                }, {
+                                    x: 30, //Item 1
+                                    y: "Spring"
+                                }, {
+                                    x: 50,
+                                    y: "Spring"
+                                }, {
+                                    x: 70,
+                                    y: "Spring"
+                                }, {
+                                    x: 90,
+                                    y: "Spring"
+                                }, {
+                                    x: 110,
+                                    y: "Spring"
+                                }, {
+                                    x: 130,
+                                    y: "Spring"
+                                }, {
+                                    x: 150,
+                                    y: "Spring"
+                                }, {
+                                    x: 170,
+                                    y: "Spring"
+                                }, {
+                                    x: 190,
+                                    y: "Spring"
+                                }, {
+                                    x: 210,
+                                    y: "Spring"
+                                }, {
+                                    x: 230,
+                                    y: "Spring"
+                                }, {
+                                    x: 250,
+                                    y: "Spring"
+                                }, {
+                                    x: 270,
+                                    y: "Spring"
+                                }, {
+                                    x: null,
+                                    y: 10
+                                }],
+                                pointRadius: [
+                                    0,
+                                    Math.sqrt(1127) * 0.85,
+                                    Math.sqrt(1452) * 0.85,
+                                    Math.sqrt(1532) * 0.85,
+                                    Math.sqrt(1089) * 0.85,
+                                    Math.sqrt(590) * 0.85,
+                                    Math.sqrt(346) * 0.85,
+                                    Math.sqrt(615) * 0.85,
+                                    Math.sqrt(228) * 0.85,
+                                    Math.sqrt(425) * 0.85,
+                                    Math.sqrt(466) * 0.85,
+                                    Math.sqrt(793) * 0.85,
+                                    Math.sqrt(546) * 0.85,
+                                    Math.sqrt(121) * 0.85,
+                                    0
+                                ],
+                                pointHoverRadius: [
+                                    0,
+                                    Math.sqrt(1129) * 0.9 + 1,
+                                    Math.sqrt(1452) * 0.9 + 1,
+                                    Math.sqrt(1532) * 0.9 + 1,
+                                    Math.sqrt(1089) * 0.9 + 1,
+                                    Math.sqrt(590) * 0.9 + 1,
+                                    Math.sqrt(346) * 0.9 + 1,
+                                    Math.sqrt(615) * 0.9 + 1,
+                                    Math.sqrt(228) * 0.9 + 1,
+                                    Math.sqrt(425) * 0.9 + 1,
+                                    Math.sqrt(466) * 0.9 + 1,
+                                    Math.sqrt(793) * 0.9 + 1,
+                                    Math.sqrt(546) * 0.9 + 1,
+                                    Math.sqrt(121) * 0.9 + 1,
+                                    0
+                                ],
+                                // pointBorderWidth: 2,
+                                // pointHoverBorderWidth: 2,
+                                // pointBackgroundColor: "rgba(173, 256, 226, 1)",
+                                // pointHoverBackgroundColor: "rgba(173, 256, 226, 1)",
+
+                                pointBackgroundColor: "rgba(75, 192, 192, 1)",
+                                pointHoverBackgroundColor: "rgba(75, 192, 192, 1)",
+
+                                pointBorderColor: "rgba(75, 192, 192, 1)",
+                                pointHoverBorderColor: "rgba(75, 192, 192, 1)"
+
+                            }, { // Data Set 2: Summer---------------
+                                // label: "Summer",
+                                data: [{
+                                    x: null, // Item null
+                                    y: "Summer"
+                                }, {
+                                    x: 30, //
+                                    y: "Summer"
+                                }, {
+                                    x: 50,
+                                    y: "Summer"
+                                }, {
+                                    x: 70,
+                                    y: "Summer"
+                                }, {
+                                    x: 90,
+                                    y: "Summer"
+                                }, {
+                                    x: 110,
+                                    y: "Summer"
+                                }, {
+                                    x: 130,
+                                    y: "Summer"
+                                }, {
+                                    x: 150,
+                                    y: "Summer"
+                                }, {
+                                    x: 170,
+                                    y: "Summer"
+                                }, {
+                                    x: 190,
+                                    y: "Summer"
+                                }, {
+                                    x: 210,
+                                    y: "Summer"
+                                }, {
+                                    x: 230,
+                                    y: "Summer"
+                                }, {
+                                    x: 250,
+                                    y: "Summer"
+                                }, {
+                                    x: 270,
+                                    y: "Summer"
+                                }, {
+                                    x: null,
+                                    y: null
+                                }],
+                                pointRadius: [
+                                    0,
+                                    Math.sqrt(1352) * 0.85,
+                                    Math.sqrt(2013) * 0.85,
+                                    Math.sqrt(2209) * 0.85,
+                                    Math.sqrt(1331) * 0.85,
+                                    Math.sqrt(752) * 0.85,
+                                    Math.sqrt(358) * 0.85,
+                                    Math.sqrt(517) * 0.85,
+                                    Math.sqrt(188) * 0.85,
+                                    Math.sqrt(543) * 0.85,
+                                    Math.sqrt(445) * 0.85,
+                                    Math.sqrt(545) * 0.85,
+                                    Math.sqrt(456) * 0.85,
+                                    Math.sqrt(176) * 0.85,
+                                    0
+                                ],
+                                pointHoverRadius: [
+                                    0,
+                                    Math.sqrt(1352) * 0.85+1,
+                                    Math.sqrt(2013) * 0.85+1,
+                                    Math.sqrt(2209) * 0.85+1,
+                                    Math.sqrt(1331) * 0.85+1,
+                                    Math.sqrt(752) * 0.85+1,
+                                    Math.sqrt(358) * 0.85+1,
+                                    Math.sqrt(517) * 0.85+1,
+                                    Math.sqrt(188) * 0.85+1,
+                                    Math.sqrt(543) * 0.85+1,
+                                    Math.sqrt(445) * 0.85+1,
+                                    Math.sqrt(545) * 0.85+1,
+                                    Math.sqrt(456) * 0.85+1,
+                                    Math.sqrt(176) * 0.85+1,
+                                    0
+                                ],
+                                pointBackgroundColor: "rgba(255, 206, 86, 1)",
+                                pointBorderColor: "rgba(255, 206, 86, 1)",
+                                pointHoverBackgroundColor: "rgba(255, 206, 86, 1)",
+                                hoverBorderColor: "rgba(255, 206, 86, 1)"
+                            }, { // Dataset 3: Fall------------------
+                                // label: "Fall",
+                                data: [{
+                                    x: null, // Item null
+                                    y: null,
+                                }, {
+                                    x: 30, //Item 1
+                                    y: "Fall"
+                                }, {
+                                    x: 50,
+                                    y: "Fall"
+                                }, {
+                                    x: 70,
+                                    y: "Fall"
+                                }, {
+                                    x: 90,
+                                    y: "Fall"
+                                }, {
+                                    x: 110,
+                                    y: "Fall"
+                                }, {
+                                    x: 130,
+                                    y: "Fall"
+                                }, {
+                                    x: 150,
+                                    y: "Fall"
+                                }, {
+                                    x: 170,
+                                    y: "Fall"
+                                }, {
+                                    x: 190,
+                                    y: "Fall"
+                                }, {
+                                    x: 210,
+                                    y: "Fall"
+                                }, {
+                                    x: 230,
+                                    y: "Fall"
+                                }, {
+                                    x: 250,
+                                    y: "Fall"
+                                }, {
+                                    x: 270,
+                                    y: "Fall"
+                                }, {
+                                    x: null,
+                                    y: null
+                                }],
+                                pointRadius: [
+                                    0,
+                                    Math.sqrt(953) * 0.85,
+                                    Math.sqrt(1401) * 0.85,
+                                    Math.sqrt(1776) * 0.85,
+                                    Math.sqrt(1283) * 0.85,
+                                    Math.sqrt(477) * 0.85,
+                                    Math.sqrt(461) * 0.85,
+                                    Math.sqrt(630) * 0.85,
+                                    Math.sqrt(291) * 0.85,
+                                    Math.sqrt(509) * 0.85,
+                                    Math.sqrt(556) * 0.85,
+                                    Math.sqrt(710) * 0.85,
+                                    Math.sqrt(585) * 0.85,
+                                    Math.sqrt(140) * 0.85,
+                                    0
+                                ],
+                                pointHoverRadius: [
+                                    0,
+                                    Math.sqrt(953) * 0.85+1,
+                                    Math.sqrt(1401) * 0.85+1,
+                                    Math.sqrt(1776) * 0.85+1,
+                                    Math.sqrt(1283) * 0.85+1,
+                                    Math.sqrt(477) * 0.85+1,
+                                    Math.sqrt(461) * 0.85+1,
+                                    Math.sqrt(630) * 0.85+1,
+                                    Math.sqrt(291) * 0.85+1,
+                                    Math.sqrt(509) * 0.85+1,
+                                    Math.sqrt(556) * 0.85+1,
+                                    Math.sqrt(710) * 0.85+1,
+                                    Math.sqrt(585) * 0.85+1,
+                                    Math.sqrt(140) * 0.85+1,
+                                    0
+                                ],
+                                pointBackgroundColor: "rgba(153, 108, 251, 1)",
+                                pointBorderColor: "rgba(153, 108, 251, 1)",
+                                pointHoverBackgroundColor: "rgba(153, 108, 251, 1)",
+                                pointHoverBorderColor: "rgba(153, 108, 251, 1)"
+                            }, { // Dataset 4: Winter ----------------
+                                // label: "Winter",
+                                data: [{
+                                    x: null, // Item null
+                                    y: null,
+                                }, {
+                                    x: "MN06", //Item 1
+                                    y: "Winter"
+                                }, {
+                                    x: 50,
+                                    y: "Winter"
+                                }, {
+                                    x: 70,
+                                    y: "Winter"
+                                }, {
+                                    x: 90,
+                                    y: "Winter"
+                                }, {
+                                    x: 110,
+                                    y: "Winter"
+                                }, {
+                                    x: 130,
+                                    y: "Winter"
+                                }, {
+                                    x: 150,
+                                    y: "Winter"
+                                }, {
+                                    x: 170,
+                                    y: "Winter"
+                                }, {
+                                    x: 190,
+                                    y: "Winter"
+                                }, {
+                                    x: 210,
+                                    y: "Winter"
+                                }, {
+                                    x: 230,
+                                    y: "Winter"
+                                }, {
+                                    x: 248,
+                                    y: "Winter"
+                                }, {
+                                    x: 278,
+                                    y: "Winter"
+                                }, {
+                                    x: null,
+                                    y: null
+                                }],
+                                pointRadius: [
+                                    0,
+                                    Math.sqrt(817) * 0.85,
+                                    Math.sqrt(1282) * 0.85,
+                                    Math.sqrt(1313) * 0.85,
+                                    Math.sqrt(1108) * 0.85,
+                                    Math.sqrt(254) * 0.85,
+                                    Math.sqrt(248) * 0.85,
+                                    Math.sqrt(419) * 0.85,
+                                    Math.sqrt(133) * 0.9,
+                                    Math.sqrt(318) * 0.85,
+                                    Math.sqrt(513) * 0.85,
+                                    Math.sqrt(519) * 0.85,
+                                    Math.sqrt(390) * 0.85,
+                                    Math.sqrt(166) * 0.85,
+                                    0
+                                ],
+                                pointHoverRadius: [
+                                    0,
+                                    Math.sqrt(817) * 0.85+1,
+                                    Math.sqrt(1282) * 0.85+1,
+                                    Math.sqrt(1313) * 0.85+1,
+                                    Math.sqrt(1108) * 0.85+1,
+                                    Math.sqrt(254) * 0.85+1,
+                                    Math.sqrt(248) * 0.85+1,
+                                    Math.sqrt(419) * 0.85+1,
+                                    Math.sqrt(133) * 0.85+1,
+                                    Math.sqrt(318) * 0.85+1,
+                                    Math.sqrt(513) * 0.85+1,
+                                    Math.sqrt(519) * 0.85+1,
+                                    Math.sqrt(390) * 0.85+1,
+                                    Math.sqrt(166) * 0.85+1,
+                                    0
+                                ],
+                                pointBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                            }, {
+                                label: null,
+                                data: null,
+                                options: null
+                            }
+                        ]}, // End of datasets property
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            legend: {
+                                display: false,
+                            },
+                            scales: {
+                                yAxes: [{
+                                    type: "category",
+                                    labels: [
+                                        "",
+                                        "Spring",
+                                        "Summer",
+                                        "Fall",
+                                        "Winter",
+                                        ""
+                                    ],
+                                    gridLines: {
+                                        display: false
+                                    }
+                                }],
+                                xAxes: [{
+                                    type: "category",
+                                    labels: [
+                                        "BROADWAY NORTH",
+                                        ["Marble Hill,", "Inwood"],
+                                        ["Washington", " Heights North"],
+                                        ["Washington", "Heights South"],
+                                        ["Hamilton", "Heights"],
+                                        ["Manhattanville"],
+                                        ["Morningside", "Heights"],
+                                        ["Upper West Side"],
+                                        ["Lincoln Square"],
+                                        ["Midtown,","Midtown South"],
+                                        ["Hudson Yards,", "Chelsea, Flatiron,", "Union Square"],
+                                        ["West Village"],
+                                        ["SoHo, TriBeCa,", "Civic Ctr, L. Italy"],
+                                        ["Battery Park City,", "Lower Manhattan"],
+                                        "BROADWAY SOUTH"
+                                    ],
+                                    ticks: {
+                                        minRotation: 70,
+                                        padding: 10
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <!-- <div class="sec3" class="grid-container">
+            <div class="sec3-1" class="grid-item">
+                <canvas id="ch2"></canvas>
+                <script>
+                    let chx2 = document.getElementById("ch2").getContext('2d');
+                    console.log(Chart.defaults); // TOTAL SEXINESS!
+                    let chart2 = new Chart(chx2, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "MN06",
+                                "MN04",
+                                "MN24",
+                                "MN35",
+                                "MN25",
+                                "MN14",
+                                "MN17",
+                                "MN13",
+                                "MN01",
+                                "MN23",
+                                "MN09",
+                                "MN12",
+                                "MN36",
+                                "MN99"
+                            ],
+                            datasets: [{
+                                label: "Left",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    17863,
+                                    34134,
+                                    26348,
+                                    50909,
+                                    29802,
+                                    48625,
+                                    18253,
+                                    14970,
+                                    52681,
+                                    20117,
+                                    34754,
+                                    73789,
+                                    64821,
+                                    25250
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                // borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                                pointHoverBorderWidth: "rgba(255,99,132,1)",
+                            },
+                            {
+                                label: "right",
+                                yAxisID: "right-y-axis",
+                                data: [
+                                    3000,
+                                    3500,
+                                    5200,
+                                    4800,
+                                    4000,
+                                    3700,
+                                    4400,
+                                    5000,
+                                    2350,
+                                    2600,
+                                    4000,
+                                    4200,
+                                    5100,
+                                    3400
+                                ],
+                                fill: false,
+                                // lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                // borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                mode: "x",
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left"
+                                }, {
+                                    id: "right-y-axis",
+                                    type: "linear",
+                                    position: "right"
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div class="sec3-2" class="grid-item">
+                <p class="section">Median Age</p>
+            </div>
+            <div class="sec3-3" class="grid-item">
+                <p class="copy">Our text goes here</p>
+            </div>
+        </div> -->
+
+        <!-- Section 4 -->
+        <!-- <div class="sec4" class="grid-container"> -->
+            <!-- <div class="sec4-1" class="grid-item">
+                <p class="section">Educational Attainment</p>
+            </div>
+            <div class="sec4-2" class="grid-item">
+                <p class="copy">Our text goes here</p>
+            </div>
+            <div class="sec4-3" class="grid-item">
+                <canvas id="ch3"></canvas>
+                <script>
+                    let chx3 = document.getElementById("ch3").getContext('2d');
+                    console.log(Chart.defaults); // TOTAL SEXINESS!
+                    let chart3 = new Chart(chx3, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "MN06",
+                                "MN04",
+                                "MN24",
+                                "MN35",
+                                "MN25",
+                                "MN14",
+                                "MN17",
+                                "MN13",
+                                "MN01",
+                                "MN23",
+                                "MN09",
+                                "MN12",
+                                "MN36",
+                                "MN99"
+                            ],
+                            datasets: [{
+                                label: "Left",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    17863,
+                                    34134,
+                                    26348,
+                                    50909,
+                                    29802,
+                                    48625,
+                                    18253,
+                                    14970,
+                                    52681,
+                                    20117,
+                                    34754,
+                                    73789,
+                                    64821,
+                                    25250
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                                pointHoverBorderWidth: "rgba(255,99,132,1)",
+                            },
+                            {
+                                label: "right",
+                                yAxisID: "right-y-axis",
+                                data: [
+                                    3000,
+                                    3500,
+                                    5200,
+                                    4800,
+                                    4000,
+                                    3700,
+                                    4400,
+                                    5000,
+                                    2350,
+                                    2600,
+                                    4000,
+                                    4200,
+                                    5100,
+                                    3400
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                mode: "x",
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left"
+                                }, {
+                                    id: "right-y-axis",
+                                    type: "linear",
+                                    position: "right"
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div> -->
+
+        <!-- Section 5 -->
+        <!-- <div class="sec5" class="grid-container">
+            <div  class="sec5-1" class="grid-item">
+                <canvas id="ch4"></canvas>
+                <script>
+                    let chx4 = document.getElementById("ch4").getContext('2d');
+                    console.log(Chart.defaults); // TOTAL SEXINESS!
+                    let chart4 = new Chart(chx4, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "MN06",
+                                "MN04",
+                                "MN24",
+                                "MN35",
+                                "MN25",
+                                "MN14",
+                                "MN17",
+                                "MN13",
+                                "MN01",
+                                "MN23",
+                                "MN09",
+                                "MN12",
+                                "MN36",
+                                "MN99"
+                            ],
+                            datasets: [{
+                                label: "Left",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    17863,
+                                    34134,
+                                    26348,
+                                    50909,
+                                    29802,
+                                    48625,
+                                    18253,
+                                    14970,
+                                    52681,
+                                    20117,
+                                    34754,
+                                    73789,
+                                    64821,
+                                    25250
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                                pointHoverBorderWidth: "rgba(255,99,132,1)",
+                            },
+                            {
+                                label: "right",
+                                yAxisID: "right-y-axis",
+                                data: [
+                                    3000,
+                                    3500,
+                                    5200,
+                                    4800,
+                                    4000,
+                                    3700,
+                                    4400,
+                                    5000,
+                                    2350,
+                                    2600,
+                                    4000,
+                                    4200,
+                                    5100,
+                                    3400
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                mode: "x",
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left"
+                                }, {
+                                    id: "right-y-axis",
+                                    type: "linear",
+                                    position: "right"
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div class="sec5-2" class="grid-item">
+                <p class="section">Median Income</p>
+            </div>
+            <div class="sec5-3" class="grid-item">
+                <p class="copy">Our text goes here</p>
+            </div>
+        </div> -->
+
+        <!-- Section 6 -->
+        <!-- <div class="sec6" class="grid-container">
+            <div class="sec6-1" class="grid-item">
+                <p class="section">Poverty Population</p>
+            </div>
+            <div class="sec6-2" class="grid-item">
+                <p class="copy">Our text goes here</p>
+            </div>
+            <div class="sec6-3" class="grid-item">
+                <canvas id="ch5" ></canvas>
+                <script>
+                    let chx5 = document.getElementById("ch5").getContext('2d');
+                    console.log(Chart.defaults); // TOTAL SEXINESS!
+                    let chart5 = new Chart(chx5, {
+                        type: "line",
+                        data: {
+                            labels: [
+                                "MN06",
+                                "MN04",
+                                "MN24",
+                                "MN35",
+                                "MN25",
+                                "MN14",
+                                "MN17",
+                                "MN13",
+                                "MN01",
+                                "MN23",
+                                "MN09",
+                                "MN12",
+                                "MN36",
+                                "MN99"
+                            ],
+                            datasets: [{
+                                label: "Left",
+                                yAxisID: "left-y-axis",
+                                data: [
+                                    17863,
+                                    34134,
+                                    26348,
+                                    50909,
+                                    29802,
+                                    48625,
+                                    18253,
+                                    14970,
+                                    52681,
+                                    20117,
+                                    34754,
+                                    73789,
+                                    64821,
+                                    25250
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                                pointHoverBorderWidth: "rgba(255,99,132,1)",
+                            },
+                            {
+                                label: "right",
+                                yAxisID: "right-y-axis",
+                                data: [
+                                    3000,
+                                    3500,
+                                    5200,
+                                    4800,
+                                    4000,
+                                    3700,
+                                    4400,
+                                    5000,
+                                    2350,
+                                    2600,
+                                    4000,
+                                    4200,
+                                    5100,
+                                    3400
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                mode: "x",
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scales: {
+                                yAxes: [{
+                                    id: "left-y-axis",
+                                    type: "linear",
+                                    position: "left"
+                                }, {
+                                    id: "right-y-axis",
+                                    type: "linear",
+                                    position: "right"
+                                }]
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+        </div> -->
+
+        <!-- Section 7-->
+        <!-- <div class="sec7" class="grid-container">
+            <div class="sec7-1" class="grid-item">
+                <p class="subtitle">YEARLY FIGURES</p>
+            </div>
+            <div class="sec7-2" class="grid-item">
+                <p class="copy">Our text goes here</p>
+            </div>
+            <div class="sec7-3" class="grid-item">
+                <canvas id="ch6"></canvas>
+                <script>
+                    let chx6 = document.getElementById("ch6").getContext('2d');
+                    console.log(Chart.defaults); // TOTAL SEXINESS!
+                    let chart6 = new Chart(chx6, {
+                        type: "radar",
+                        // type: "polarArea",
+                        data: {
+                            labels: [
+                                "JAN",
+                                "FEB",
+                                "MAR",
+                                "APR",
+                                "MAY",
+                                "JUN",
+                                "JUL",
+                                "AUG",
+                                "SEP",
+                                "OCT",
+                                "NOV",
+                                "DEC"
+                            ],
+                            datasets: [{
+                                label: "ONE",
+                                data: [
+                                    17863,
+                                    34134,
+                                    26348,
+                                    50909,
+                                    29802,
+                                    48625,
+                                    18253,
+                                    14970,
+                                    52681,
+                                    20117,
+                                    34754,
+                                    73789,
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(255,99,132,1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(255,99,132,1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(255,99,132,1)",
+                                pointHoverBorderColor: "rgba(255,99,132,1)",
+                                pointHoverBorderWidth: "rgba(255,99,132,1)",
+                            },
+                            {
+                                label: "TWO",
+                                data: [
+                                    33000,
+                                    43500,
+                                    52000,
+                                    48000,
+                                    40000,
+                                    37000,
+                                    44000,
+                                    50000,
+                                    23500,
+                                    26000,
+                                    40000,
+                                    42000
+                                ],
+                                fill: false,
+                                lineTension: 0.0,
+                                cubicInterpolationMode: "monotone",
+                                borderWidth: 3,
+                                borderColor: "rgba(54, 162, 235, 1)",
+                                borderCapStyle: "butt",
+                                boderDash: [],
+                                borderDashOffset: 0.0,
+                                borderJoinStyle: "miter",
+                                pointRadius: 4,
+                                pointBorderColor: "rgba(54, 162, 235, 1)",
+                                pointBackgroundColor: "#ffffff",
+                                pointBorderWidth: 2,
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+                                pointHoverBorderWidth: "rgba(54, 162, 235, 1)",
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            tooltips: {
+                                titleSpacing: 6,
+                                bodySpacing: 4,
+                                backgroundColor: "rgba(1,1,1,0.2)"
+                            },
+                            scale: {
+                                display: true
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+        </div> -->
+    </body>

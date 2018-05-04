@@ -1,0 +1,405 @@
+/* CSS Reset
+---------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    background-image: url("../img/mhtt-2.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* Content Elements
+---------------------------------------*/
+.body {
+    width: 1200;
+}
+
+
+/* Title and intro text
+-------------------*/
+.sec1 {
+    display: grid;
+    grid-template-columns: 240px 240px 240px 240px;
+    grid-template-rows: 200px 200px 220px 220px 220px 220PX;
+    grid-gap: 20px 20px;
+    justify-content: center;
+    margin-top: 30px;
+    /* margin-bottom: 30px; */
+}
+
+.sec1-1 {
+    grid-area: 1 / 1 / 2 / 5;
+    /* background-color: #d3d3d3; */
+}
+
+.sec1-2 {
+    grid-area: 2 / 1 / 2 / 3;
+    padding-top: 30px;
+}
+
+.sec1-3 {
+    grid-area: 2 / 3 / 3 / 5;
+    place-self: center;
+    padding-top: 100px;
+}
+
+.sec1-4 {
+    grid-area: 3 / 1 / 4 / 3;
+    place-self: center;
+}
+
+.sec1-5 {
+    grid-area: 3 / 3 / 4 / 5;
+    place-self: center;
+}
+
+.sec1-6 {
+    grid-area: 4 / 1 / 4 / 3;
+    place-self: baseline;
+}
+
+.sec1-7 {
+    grid-area: 5 / 1 / 5 / 3;
+    place-self: center;
+}
+
+.map {
+    grid-area: 4 / 3 / 6 / 5;
+    place-self: center;
+}
+
+
+
+.sec1-8 {
+    grid-area: 6 / 1 / 6 / 5;
+    place-self: center;
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+/* First Visualization: General Overview
+-----------------------------------------*/
+.sec0 {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 150px 150px 150px 250px;
+    justify-content: center;
+    grid-gap: 0px;
+    margin-top: 20px;
+}
+.sec0-1 {
+    grid-area: 1 / 1 / 2 / 5;
+    /* background-color: #d3d3d3; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sec0-2 {
+    grid-area: 2 / 1 / 3 / 5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sec0-3 {
+    grid-area: 3 / 1 / 4 / 5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.sec0-4 {
+    grid-area: 4 / 1 / 5 / 5;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Text between both major visualizations
+----------------------------------*/
+.sec-rnd {
+    display: grid;
+    grid-template-columns: 240px 240px 240px 240px;
+    grid-template-rows: 150px;
+    grid-gap: 20px 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.rnd-1 {
+    grid-area: 1/ 1/ 1/ 3;
+    place-self: center;
+    padding-top: 50px;
+    /* padding-bottom: 80px; */
+    padding-left: 0px;
+    padding-right: 0px;
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.rnd-2 {
+    grid-area: 1/ 3/ 3/ 5;
+    place-self: center;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+/* Second Visualization: Complaints by Season
+--------------------------------------*/
+.secS {
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 640px;
+    justify-content: center;
+    grid-gap: 0px;
+    /* margin-bottom: 30px; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.secS-1 {
+    grid-area: 1 / 1 / 2 / 5;
+    /* background-color: #d3d3d3; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*
+----------------*/
+.sec3 {
+    display: grid;
+    grid-template-columns: 300px 300px 200px 200px;
+    grid-template-rows: 100px 240px;
+    justify-content: center;
+    grid-gap: 20px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sec3-1 {
+    grid-area: 1 / 1 / 3 / 3;
+    /* background-color: #d3d3d3; */
+}
+
+.sec3-2 {
+    grid-area: 1 / 3 / 2 / 5;
+    /* background-color: #d3d3d3; */
+}
+
+.sec3-3 {
+    grid-area: 2 / 3 / 3 / 5;
+    /* background-color: #d3d3d3; */
+}
+
+
+/*
+----------------*/
+.sec4 {
+    display: grid;
+    grid-template-columns: 200px 200px 300px 300px;
+    grid-template-rows: 100px 240px;
+    justify-content: center;
+    grid-gap: 20px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sec4-1 {
+    grid-area: 1 / 1 / 2 / 3;
+    /* background-color: #d3d3d3; */
+}
+
+.sec4-2 {
+    grid-area: 2 / 1 / 2 / 3;
+    /* background-color: #d3d3d3; */
+}
+
+.sec4-3 {
+    grid-area: 1 / 3 / 3 / 5;
+    /* background-color: #d3d3d3; */
+}
+
+
+/*
+----------------*/
+.sec5 {
+    display: grid;
+    grid-template-columns: 300px 300px 200px 200px;
+    grid-template-rows: 100px 240px;
+    justify-content: center;
+    grid-gap: 20px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sec5-1 {
+    grid-area: 1 / 1 / 3 / 3;
+    background-color: #d3d3d3;
+}
+
+.sec5-2 {
+    grid-area: 1 / 3 / 2 / 5;
+    background-color: #d3d3d3;
+}
+
+.sec5-3 {
+    grid-area: 2 / 3 / 3 / 5;
+    background-color: #d3d3d3;
+}
+
+
+/*
+----------------*/
+.sec6 {
+    display: grid;
+    grid-template-columns: 200px 200px 300px 300px;
+    grid-template-rows: 100px 240px;
+    justify-content: center;
+    grid-gap: 20px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sec6-1 {
+    grid-area: 1 / 1 / 2 / 3;
+    background-color: #d3d3d3;
+}
+
+.sec6-2 {
+    grid-area: 2 / 1 / 2 / 3;
+    background-color: #d3d3d3;
+}
+
+.sec6-3 {
+    grid-area: 1 / 3 / 3 / 5;
+    background-color: #d3d3d3;
+}
+
+
+/*
+----------------*/
+.sec7 {
+    display: grid;
+    grid-template-columns: 200px 200px 300px 300px;
+    grid-template-rows: 100px 100px 600px;
+    justify-content: center;
+    grid-gap: 20px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.sec7-1 {
+    grid-area: 1 / 1 / 2 / 5;
+    background-color: #d3d3d3;
+}
+
+.sec7-2 {
+    grid-area: 2 / 1 / 3 / 5;
+    background-color: #d3d3d3;
+}
+
+.sec7-3 {
+    grid-area: 3 / 1 / 4 / 5;
+    /* background-color: #d3d3d3; */
+}
+
+
+/* Typographic Styles
+------------------------------------------*/
+.title {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 72px;
+    color: #ffffff;
+    padding-top: 80px;
+    background-color: rgb(0,0,0,0.5);
+}
+
+.legend {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 32px;
+    line-height: 48px;
+    color: #ffffff;
+    background-color: rgb(0,0,0,0.5);
+}
+
+.subtitle {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 38px;
+    line-height: 44px;
+}
+
+.section {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 32px;
+    line-height: 48px;
+}
+.copy {
+    font-family: "Crimson";
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.big-number {
+    font-family: "PT Sans";
+    font-style: italic;
+    font-size: 100px;
+    padding-top: auto;
+    color: rgba(255,99,132,1);
+    /* line-height: 40px; */
+}
+
+.map-txt {
+    font-family: "Crimson";
+    font-size: 11px;
+    line-height: 14px;
+    justify-content: center;
+}
